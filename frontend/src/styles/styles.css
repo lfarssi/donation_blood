@@ -1,0 +1,103 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}.w-20 {
+  width: 4rem/* 80px */;
+}.h-20 {
+  height: 3.5rem/* 80px */;
+}.rounded-full {
+  border-radius: 9999px;
+}.text-cyan-800 {
+  --tw-text-opacity: 1;
+  color: rgb(21 94 117 / var(--tw-text-opacity));
+}.w-10 {
+  width: 2.5rem/* 40px */;
+}.h-10 {
+  height: 2.5rem/* 40px */;
+}.justify-between {
+  justify-content: space-between;
+}.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}.h-screen {
+  height: 90vh;
+}.text-2xl {
+  font-size: 1.5rem/* 24px */;
+  line-height: 2rem/* 32px */;
+}.font-bold {
+  font-weight: 700;
+}.hover\:bg-green-500:hover {
+  --tw-bg-opacity: 1;
+  border-radius: 7px;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+.flex {
+  display: flex;
+}.flex-grow {
+  flex-grow: 1;
+}.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}.block {
+  display: block;
+}.flex-none {
+  flex: none;
+}.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}.text-cyan-500 {
+  --tw-text-opacity: 1;
+  color: rgb(6 182 212 / var(--tw-text-opacity));
+  font-weight: bold;
+}.w-72 {
+  width: 15rem/* 288px */;
+}
+.w-auto {
+  width: auto;
+}.navCards{
+  width: 31%;
+  height: 160px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+background: rgb(255, 255, 255);
+box-shadow:  10px 10px 5px #a6a6a6,
+             -10px -10px 5px #c4c3c3;
+}.cntr{
+  width: 95%;
+  margin:5% auto;
+  display: flex;
+  justify-content: space-between;
+}.navCards:hover{
+  width: 35%;
+  height: 180px;
+}.parent{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin:20px auto;
+  border-radius: 20px;
+  border: 2px dashed gray;
+background: #ffffff;
+
+}.border-l-emerald-600 {
+  --tw-border-opacity: 1;
+  border-right: 7px solid rgb(5 150 105 / var(--tw-border-opacity));
+}.inputsBorder{
+ outline: 4px solid red;
+
+}.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
