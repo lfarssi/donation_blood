@@ -3,8 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Middleware\CsrfValideMiddleware;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,9 +18,8 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::middleware("web")->get("/csrf-token",function (){
-    $csrfToekn=csrf_token();
-    setcookie("csrfToken",$csrfToekn);
-    return response()->json(["csrfToken"=>$csrfToekn]);
+    return response()->json(["csrfToken"=>csrf_token()]);
 });
 
 Route::post("/login",[AuthController::class,"login"]);
+Route::post("/logout",[AuthController::class,"logout"]);

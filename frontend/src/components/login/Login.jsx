@@ -67,11 +67,13 @@ const Login = () => {
     setIsSub(true)
 
    const data= await axiosObj.get("/api/csrf-token");
+   console.log(data.data.csrfToken);
     window.localStorage.setItem("csrf-token",data.data.csrfToken)
     const {email,password}=inputs;
   const response = await axiosObj.post('/api/login', {
     email,
-    password
+    password,
+    csrfToken: window.localStorage.getItem("csrf-token")
   },)
       .then((resp) => {
       console.log(resp.data.valideLogin);

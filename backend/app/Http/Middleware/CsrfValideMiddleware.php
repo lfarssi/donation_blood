@@ -15,18 +15,15 @@ class CsrfValideMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $tokenFromHeader = $request->header('Authorization'); 
 
-        // Extract just the token value
-        $authHeaderParts = explode(' ', $tokenFromHeader);
-        $tokenFromHeader = $authHeaderParts[1];
-        $tokenFromCookie =$_COOKIE["csrfToken"];
+        $tokenFromHeader = $request->only("csrfToken");
+        
     
         // Verify they match
-        if($tokenFromHeader != $tokenFromCookie) {
-    return response()->json(['error' => 'token mismacth'],419); 
+       /* if($tokenFromHeader != $tokenFromCookie) {
+    return response()->json(['error' => 'token mismacth',"cookie"=>$tokenFromCookie,"equals"=>$tokenFromHeader != $tokenFromCookie],419); 
          
-        }
+        }*/
     
         return $next($request);
       }

@@ -52,6 +52,11 @@ export default function Campaign() {
     {errs.title && <div  className="form-text text-danger">se champ est obligatoire</div>}
   </div>
   <div className="mb-3 w-75 mx-auto">
+    <label className="form-label  font-bold">Compaign lieu :</label>
+    <input type="text" name='title' className="form-control  inputsBorder" onChange={handleChange} />
+    {errs.title && <div  className="form-text text-danger">se champ est obligatoire</div>}
+  </div>
+  <div className="mb-3 w-75 mx-auto">
     <label  className="form-label font-bold">Date :</label>
     <input type="date" name='date' className="form-control  inputsBorder" onChange={handleChange} />
     {errs.date && <div  className="form-text text-danger">se champ est obligatoire</div>}
