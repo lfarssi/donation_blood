@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 Route::post("/campaign",[App\Http\Controllers\CampaignController::class,"store"]);
 
-require __DIR__.'/auth.php';
+
