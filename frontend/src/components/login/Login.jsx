@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  {  useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -70,7 +70,7 @@ const Login = () => {
    console.log(data.data.csrfToken);
     window.localStorage.setItem("csrf-token",data.data.csrfToken)
     const {email,password}=inputs;
-  const response = await axiosObj.post('/api/login', {
+ axiosObj.post('/api/login', {
     email,
     password,
     csrfToken: window.localStorage.getItem("csrf-token")
