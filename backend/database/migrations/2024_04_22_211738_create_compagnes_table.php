@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string("dateCompagne");
             $table->string("horaireDebut");
             $table->string("horaireFin");
-            $table->unsignedBigInteger("lieu");
+            $table->unsignedBigInteger("lieu_id");
+            $table->unsignedBigInteger("staff_id");
+            $table->unsignedBigInteger("equipe_id");
+            
             $table->timestamps();
         });
     }

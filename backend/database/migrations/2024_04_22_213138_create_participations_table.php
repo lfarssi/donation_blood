@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string("apt");
             $table->string("donationDate");
+            $table->unsignedBigInteger("compagne_id");
+            $table->unsignedBigInteger("participant_id");
+            $table->foreign('compagne_id')->references('id')->on('compagnes')->onDelete('cascade');
+            $table->foreign('participant_id')->references('id')->on('participants')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,5 +29,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('participations');
+        
     }
 };
