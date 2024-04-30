@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function Main() {
   const navigate=useNavigate()
-  useEffect(()=>{
-    if(!window.sessionStorage.getItem("user")){
-           navigate("/")
-    }
-  })
+  // useEffect(()=>{
+  //   if(!window.sessionStorage.getItem("user")){
+  //          navigate("/")
+  //   }
+  // })
   return (
     <div className='cntr'>
      <Link className="navCards text-decoration-none" to={"/createCamp"}>

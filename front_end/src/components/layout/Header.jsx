@@ -1,44 +1,71 @@
-import { Link, useNavigate } from 'react-router-dom'
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, Avatar } from '@mui/material';
+import { Logout } from '@mui/icons-material';
 import axiosObj from '../../axios/axiosConfig';
 
-export default function Header({children}) {
-  const navigate=useNavigate()
-  const logout = async (e)=>{
-    e.preventDefault()
-   
-    const accessToken = window.localStorage.getItem('csrf-token');
+export default function Header() {
+  const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
- const resp = await axiosObj.post("/api/logout", null, {
-  headers: {
-    Authorization: `Bearer ${accessToken}`
-  }
-})
-if(resp.status===200){
-  window.localStorage.removeItem("csrf-tooken")
-  window.sessionStorage.removeItem("user")
-  navigate("/")
-}
-  }
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = async () => {
+    handleMenuClose();
+    try {
+      const accessToken = window.localStorage.getItem('csrf-token');
+      const resp = await axiosObj.post("/api/logout", null, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      });
+      if (resp.status === 200) {
+        window.localStorage.removeItem("csrf-token");
+        window.sessionStorage.removeItem("user");
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
-  
-       <nav className='row bg-red-600 container-fluid mx-auto justify-between align-items-center p-1'>
-      <div className='col-2'>
-        <img src="./images/logo2.jpg" alt="404" className='w-20 h-20  rounded-full'/>
-      </div>
-      <div className='col-1 '>
-      <div className="dropdown  d-inline-block w-75 ms-4 ">
-  <button className="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-  <img src="./images/profile.png" alt="404" className='w-10 h-10  rounded-full'/>
-  </button>
-  <ul className="dropdown-menu dropdown-menu-danger">
-    <li><Link to={"/settings"} className="dropdown-item" ><i className="fa-solid fa-gear me-1  text-cyan-800"></i>settings</Link></li>
-    <li><hr className="dropdown-divider"/></li>
-    <li><button className="dropdown-item" onClick={logout}><i className="fa-solid fa-right-from-bracket me-1 text-cyan-800" ></i>logout</button></li>
-  </ul>
-</div>
-      </div>
-    </nav>
-    
-  
-  )
+    <AppBar position="static" sx={{ backgroundColor: 'red' }}>
+      <Toolbar>
+        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <img src="./images/logo2.jpg" alt="Logo" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '16px' }} />
+        </Link>
+        <div style={{ flexGrow: 1 }} />
+        <IconButton
+          aria-label="user-menu"
+          aria-controls="user-menu"
+          aria-haspopup="true"
+          onClick={handleMenuOpen}
+          color="inherit"
+        >
+          <Avatar src="./images/profile.png" alt="Avatar" />
+        </IconButton>
+        <Menu
+          id="user-menu"
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleMenuClose}
+        >
+          <MenuItem onClick={handleMenuClose} component={Link} to="/settings">
+            <i className="fa-solid fa-gear me-1 text-cyan-800"></i>Settings
+          </MenuItem>
+          <MenuItem onClick={handleLogout}>
+            <Logout fontSize="small" sx={{ mr: 1 }} />
+            Logout
+          </MenuItem>
+        </Menu>
+      </Toolbar>
+    </AppBar>
+  );
 }

@@ -19,11 +19,11 @@ const routes= createBrowserRouter([
           {
             path:"/createCamp",
             element:<Campaign/>
-          },
+          },{
+            path:"/",
+            element:<Login/>
+          }
       ],
-  },{
-    path:"/",
-    element:<Login/>
-  }
+  },
    ])
 export default routes
