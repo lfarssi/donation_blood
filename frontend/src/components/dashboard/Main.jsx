@@ -16,7 +16,7 @@ export default function Main() {
         Créer une nouvelle campagne
         </h2>
       </Link>
-      <Link className="navCards text-decoration-none " to={"/createCamp"}>
+      <Link className="navCards text-decoration-none " to={"/listeCamp"}>
         <img src="images/to-do-list.png"  className='flex-1' width={130} height={130} alt="" />
         <h2 className='flex-auto  w-50 font-serif '>
         la liste de toutes les campagnes

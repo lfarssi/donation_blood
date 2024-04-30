@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CampaignController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,9 +19,10 @@ use App\Http\Controllers\AuthController;
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::middleware("web")->get("/csrf-token",function (){
+Route::get("/csrf-token",function (){
     return response()->json(["csrfToken"=>csrf_token()]);
 });
-
 Route::post("/login",[AuthController::class,"login"]);
 Route::post("/logout",[AuthController::class,"logout"]);
+# --------------------------------------------------------
+Route::get("/campaigns",[CampaignController::class,"index"]);

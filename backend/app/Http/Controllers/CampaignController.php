@@ -3,15 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Campaigns;
+use App\Models\Campaign;
 
 class CampaignController extends Controller
 {
+
+    public function index(){
+  
+        $campaigns=Campaign::all();
+        return response()->json([
+            "data"=>$campaigns,
+            'message' => 'Data sent successfully'
+          ], 200);
+
+    }
+
     public function store(Request $req){
 
         $title=$req->title;
         $date=$req->date;
-        Campaigns::create([
+        Campaign::create([
             "title"=>$title,
             "created_at"=>$date
         ]);

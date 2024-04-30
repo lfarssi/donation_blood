@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "../style/loaders.css"
 import axiosObj from '@/axios/axiosConfig'
+import { Bounce, ToastContainer, toast } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 export default function Campaign() {
     const [inputVals,setInputVals]=useState({
         title:"",
@@ -12,7 +14,7 @@ export default function Campaign() {
   })
     const [isSub,setIsSub]=useState(false)
    async function handelClick(){
-        setIsSub(true)
+     /*   setIsSub(true)
         let errs={};
         let counter=0;
         for(let key in inputVals){
@@ -32,9 +34,20 @@ export default function Campaign() {
             date:false,
           })
         await axiosObj.get("/sanctum/csrf-cookie")
-        await  axiosObj.post("/campaign",inputVals).then((data)=>console.log(data.status))
+        await  axiosObj.post("/campaign",inputVals).then((data)=>console.log(data.status))*/
+        toast.success('🦄 Wow so easy!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          });/*
         }
-        setErrs(errs)
+        setErrs(errs)*/
     }
     function handleChange(e){
             setInputVals({...inputVals,[e.target.name]:e.target.value})
@@ -69,7 +82,7 @@ export default function Campaign() {
 </form>
 
         </div>
-       
+        <ToastContainer />
     </div>
   )
 }

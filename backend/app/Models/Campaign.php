@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Campaigns extends Model
+class Campaign extends Model
 {
     use HasFactory;
-    protected $fillable=["title","created_at","lasted_at"];
+    protected $fillable=["title","startTime","endTime"];
+  
 }

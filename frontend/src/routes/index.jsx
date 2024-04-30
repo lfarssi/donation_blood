@@ -1,4 +1,5 @@
 import Campaign from "@/components/dashboard/Campaign";
+import CampaignList from "@/components/dashboard/CampaignList";
 import Main from "@/components/dashboard/Main";
 import Layout from "@/components/layout/Layout";
 import Login from "@/components/login/Login";
@@ -19,6 +20,10 @@ const routes= createBrowserRouter([
           {
             path:"/createCamp",
             element:<Campaign/>
+          },
+          {
+            path:"/listeCamp",
+            element:<CampaignList/>
           },
       ],
   },{
