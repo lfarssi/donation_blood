@@ -20,6 +20,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get("/csrf-token",function (){
+Route::get("/csrf-token",function (){
     return response()->json(["csrfToken"=>csrf_token()]);
 });
 Route::post("/login",[AuthController::class,"login"]);

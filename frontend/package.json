@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -52,4 +51,5 @@
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.4"
   }
+
 }
