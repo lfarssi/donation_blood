@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { MDBTable, MDBTableHead, MDBTableBody, MDBBadge } from 'mdb-react-ui-kit';
 import axiosObj from '@/axios/axiosConfig';
 import { Link } from 'react-router-dom';
+import { TextField } from '@mui/material';
+import { MDBBadge, MDBTable, MDBTableBody, MDBTableHead } from 'mdb-react-ui-kit';
 
 export default function CampaignList() {
   const [campaigns, setCampaigns] = useState([]);
@@ -29,21 +30,25 @@ export default function CampaignList() {
   };
 
   return (
-    <div className='w-75 mx-auto mt-2'>
-      <div className="mb-3 flex justify-between">
-        <input
-          type="text"
-          className="border border-gray-300 rounded px-2 py-1"
-          placeholder="Recherche"
+    <div className='w-75 mx-auto mt-4'>
+   
+      <div className="mb-3 d-flex justify-content-between">
+        <TextField
+          label="Search"
+          variant="outlined"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
-        <input
+        <TextField
+          label="Date"
           type="date"
-          className="border border-gray-300 rounded px-2 py-1"
+          variant="outlined"
           value={selectedDate}
           onChange={handleDateChange}
+          InputLabelProps={{
+            shrink: true,
+          }}
         />
       </div>
 
@@ -60,8 +65,8 @@ export default function CampaignList() {
         <MDBTableBody>
           {filteredCampaignsByDate.map((campaign) => (
             <tr key={campaign.id}>
-              <td className='text-center'>
-                <Link className="text-decoration-none font-bold text-black hover:text-red-600" to={`/listCamp/${campaign.id}/details`}>{campaign.title}</Link>
+              <td className='text-center '>
+                <Link className="text-decoration-none font-bold campaing" to={`/listCamp/${campaign.id}/details`}>{campaign.title}</Link>
               </td>
               <td className='text-center'>
                 <MDBBadge color='danger' pill>
@@ -86,5 +91,6 @@ export default function CampaignList() {
         </MDBTableBody>
       </MDBTable>
     </div>
+    
   );
 }

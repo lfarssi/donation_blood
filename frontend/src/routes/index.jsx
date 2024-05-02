@@ -6,6 +6,7 @@ import Main from "@/components/dashboard/Main";
 import Layout from "@/components/layout/Layout";
 import Login from "@/components/login/Login";
 import { createBrowserRouter } from "react-router-dom";
+import AddParticipants from "@/components/dashboard/AddParticipants";
 
 const routes= createBrowserRouter([
     {  
@@ -30,6 +31,14 @@ const routes= createBrowserRouter([
           {
             path:"/listCamp/:id/details",
             element:<Details/>
+          },
+          {
+            path:"/addParticipants",
+            element:<AddParticipants/>
+          },
+          {
+            path:"/detailCompagne",
+            element:<StartCampaign/>
           },
       ],
   },{
