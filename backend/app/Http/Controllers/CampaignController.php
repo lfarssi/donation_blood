@@ -10,7 +10,9 @@ class CampaignController extends Controller
 
     public function index(){
   
-        $campaigns=Campaign::all();
+        $campaigns=Campaign::join('places', 'places.id', '=', 'campaigns.id_place')
+        ->select('campaigns.*', 'places.placeName')
+        ->get();
         return response()->json([
             "data"=>$campaigns,
             'message' => 'Data sent successfully'
